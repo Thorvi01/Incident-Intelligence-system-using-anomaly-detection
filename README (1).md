@@ -4,8 +4,6 @@
 
 This is an end-to-end ML pipeline that reads real system logs, finds the anomalies hiding in the noise, groups them into root causes, and hands you a structured report that a human *or* an AI agent can act on.
 
-Built as a prototype for [TasksMind](https://tasksmind.com) — an AI engineer for on-call teams.
-
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML%20Pipeline-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
