@@ -1,0 +1,229 @@
+{
+  "report_metadata": {
+    "generated_at": "2026-02-24T12:09:16.554182",
+    "system": "TasksMind Incident Intelligence v1.0",
+    "pipeline": "TF-IDF -> K-Means -> Isolation Forest",
+    "data_source": "Loghub HDFS_2k (https://github.com/logpai/loghub)",
+    "total_logs_analyzed": 2000,
+    "citation": "Jieming Zhu, Shilin He, Pinjia He, Jinyang Liu, Michael R. Lyu. Loghub: A Large Collection of System Log Datasets for AI-driven Log Analytics. IEEE ISSRE, 2023."
+  },
+  "executive_summary": {
+    "total_logs": 2000,
+    "total_anomalies": 108,
+    "anomaly_rate": 0.054,
+    "unique_clusters": 8,
+    "root_causes_identified": 1,
+    "overall_severity": "HIGH",
+    "time_range": {
+      "start": "2008-11-09T20:36:15",
+      "end": "2008-11-11T10:20:17"
+    },
+    "level_distribution": {
+      "INFO": 1920,
+      "WARN": 80
+    }
+  },
+  "root_causes": [
+    {
+      "cause_id": 1,
+      "cluster_id": 7,
+      "description": "Cluster of 187 logs dominated by keywords: blk_id filepath, dataxceiver ip_addr, datanode dataxceiver, dataxceiver. 106 anomalies detected.",
+      "severity": "HIGH",
+      "suggested_action": "Read/write traffic cluster. Monitor for latency spikes or connection drops."
+    }
+  ],
+  "cluster_details": [
+    {
+      "cluster_id": 7,
+      "log_count": 187,
+      "severity": "HIGH",
+      "anomaly_count": 106,
+      "anomaly_ratio": 0.567,
+      "level_distribution": {
+        "INFO": 107,
+        "WARN": 80
+      },
+      "top_keywords": [
+        "blk_id filepath",
+        "dataxceiver ip_addr",
+        "datanode dataxceiver",
+        "dataxceiver",
+        "served",
+        "served block"
+      ],
+      "time_window": {
+        "start": "2008-11-09T20:59:31",
+        "end": "2008-11-11T09:37:42"
+      },
+      "sample_log": "081109 205931 13 INFO dfs.DataBlockScanner: Verification succeeded for blk_-4980916519894289629"
+    },
+    {
+      "cluster_id": 0,
+      "log_count": 311,
+      "severity": "LOW",
+      "anomaly_count": 0,
+      "anomaly_ratio": 0.0,
+      "level_distribution": {
+        "INFO": 311
+      },
+      "top_keywords": [
+        "packetresponder",
+        "terminating",
+        "packetresponder packetresponder",
+        "packetresponder block",
+        "blk_id terminating",
+        "datanode packetresponder"
+      ],
+      "time_window": {
+        "start": "2008-11-09T20:36:15",
+        "end": "2008-11-11T10:19:54"
+      },
+      "sample_log": "081109 203615 148 INFO dfs.DataNode$PacketResponder: PacketResponder 1 for block blk_38865049064139660 terminating"
+    },
+    {
+      "cluster_id": 1,
+      "log_count": 314,
+      "severity": "LOW",
+      "anomaly_count": 0,
+      "anomaly_ratio": 0.0,
+      "level_distribution": {
+        "INFO": 314
+      },
+      "top_keywords": [
+        "updated ip_addr",
+        "updated",
+        "namesystem addstoredblock",
+        "ip_addr added",
+        "added blk_id",
+        "addstoredblock"
+      ],
+      "time_window": {
+        "start": "2008-11-09T20:40:05",
+        "end": "2008-11-11T10:13:16"
+      },
+      "sample_log": "081109 204005 35 INFO dfs.FSNamesystem: BLOCK* NameSystem.addStoredBlock: blockMap updated: 10.251.73.220:50010 is added to blk_7128370237687728475 size 67108864"
+    },
+    {
+      "cluster_id": 2,
+      "log_count": 294,
+      "severity": "LOW",
+      "anomaly_count": 2,
+      "anomaly_ratio": 0.007,
+      "level_distribution": {
+        "INFO": 294
+      },
+      "top_keywords": [
+        "src",
+        "src filepath",
+        "blk_id src",
+        "dest",
+        "dest filepath",
+        "filepath dest"
+      ],
+      "time_window": {
+        "start": "2008-11-09T20:48:15",
+        "end": "2008-11-11T10:20:17"
+      },
+      "sample_log": "081109 204815 653 INFO dfs.DataNode$DataXceiver: Receiving block blk_5792489080791696128 src: /10.251.30.6:33145 dest: /10.251.30.6:50010"
+    },
+    {
+      "cluster_id": 3,
+      "log_count": 292,
+      "severity": "LOW",
+      "anomaly_count": 0,
+      "anomaly_ratio": 0.0,
+      "level_distribution": {
+        "INFO": 292
+      },
+      "top_keywords": [
+        "num filepath",
+        "packetresponder received",
+        "received block",
+        "received",
+        "datanode packetresponder",
+        "packetresponder"
+      ],
+      "time_window": {
+        "start": "2008-11-09T20:46:55",
+        "end": "2008-11-11T10:17:35"
+      },
+      "sample_log": "081109 204655 556 INFO dfs.DataNode$PacketResponder: Received block blk_3587508140051953248 of size 67108864 from /10.251.42.84"
+    },
+    {
+      "cluster_id": 4,
+      "log_count": 263,
+      "severity": "LOW",
+      "anomaly_count": 0,
+      "anomaly_ratio": 0.0,
+      "level_distribution": {
+        "INFO": 263
+      },
+      "top_keywords": [
+        "deleting",
+        "deleting block",
+        "fsdataset deleting",
+        "fsdataset",
+        "file filepath",
+        "file"
+      ],
+      "time_window": {
+        "start": "2008-11-09T21:38:37",
+        "end": "2008-11-11T10:02:10"
+      },
+      "sample_log": "081109 213837 19 INFO dfs.FSDataset: Deleting block blk_1781953582842324563 file /mnt/hadoop/dfs/data/current/subdir5/blk_1781953582842324563"
+    },
+    {
+      "cluster_id": 5,
+      "log_count": 224,
+      "severity": "LOW",
+      "anomaly_count": 0,
+      "anomaly_ratio": 0.0,
+      "level_distribution": {
+        "INFO": 224
+      },
+      "top_keywords": [
+        "namesystem delete",
+        "invalidset ip_addr",
+        "added invalidset",
+        "blk_id added",
+        "invalidset",
+        "delete blk_id"
+      ],
+      "time_window": {
+        "start": "2008-11-10T02:07:24",
+        "end": "2008-11-11T08:59:29"
+      },
+      "sample_log": "081110 020724 29 INFO dfs.FSNamesystem: BLOCK* NameSystem.delete: blk_2568309208894455676 is added to invalidSet of 10.251.31.160:50010"
+    },
+    {
+      "cluster_id": 6,
+      "log_count": 115,
+      "severity": "LOW",
+      "anomaly_count": 0,
+      "anomaly_ratio": 0.0,
+      "level_distribution": {
+        "INFO": 115
+      },
+      "top_keywords": [
+        "namesystem allocateblock",
+        "filepath blk_id",
+        "allocateblock filepath",
+        "allocateblock",
+        "block namesystem",
+        "namesystem"
+      ],
+      "time_window": {
+        "start": "2008-11-09T20:50:35",
+        "end": "2008-11-11T10:12:25"
+      },
+      "sample_log": "081109 205035 28 INFO dfs.FSNamesystem: BLOCK* NameSystem.allocateBlock: /user/root/rand/_temporary/_task_200811092030_0001_m_000590_0/part-00590. blk_-1727475099218615100"
+    }
+  ],
+  "recommended_next_steps": [
+    "Investigate CRITICAL/HIGH clusters immediately.",
+    "Cross-reference top keywords with known runbooks.",
+    "Check if WARN clusters (slow I/O, replication) precede larger failures.",
+    "Review block replication status for clusters with transfer errors.",
+    "After resolution, feed this report back to retrain the anomaly model."
+  ]
+}
